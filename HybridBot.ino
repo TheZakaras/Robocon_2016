@@ -11,14 +11,14 @@
 #define MOTORID1   219 // This is for ARM    HerkuleX Servo Motor ID
 #define MOTORID2   221  // This is for BLDC Servo - used as a fan
 
-#define FAN 12
-#define m1in1 52   
+#define FAN 12 
+#define m1in1 52  // Base motors  
 #define m1in2 50
 #define m2in1 48
 #define m2in2 44
 #define m3in1 42 
 #define m3in2 38 
-#define pwm1 2
+#define pwm1 2   //Servo motors
 #define pwm2 3
 #define pwm3 4 
 
@@ -149,7 +149,7 @@ Serial.println(a[15]);*/
   if(angle <-160)
     angle = -160;
   
-  Drive_BLDC();
+  Drive_BLDC(); // Fan ON
 
 
 
@@ -244,7 +244,7 @@ void Drive_Base()
     
     int x = a[14] -132;// map to -128 to 128
     int y = a[15] - 123;  
-    m1 = rot + (x + 1.732*y)/2; // Calculation for angle to move straight.
+    m1 = rot + (x + 1.732*y)/2; // Values calculated for DC motors. 
     m2 = (rot + (x - 1.732*y)/2);
     m3 = rot + -x;
 
